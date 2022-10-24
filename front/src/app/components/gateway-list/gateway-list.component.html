@@ -1,0 +1,27 @@
+<h2> Gateway List</h2>
+<a href="#" routerLink="/add" class="btn btn-success">Create New Post</a>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>snumber</th>
+            <th>Ip Addr</th>
+            <th>Options</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let gateway of gateways">
+            <td>{{gateway.id}}</td>
+            <td>{{gateway.name}}</td>
+            <td>{{gateway.snumber}}</td>
+            <td>{{gateway.ipaddr}}</td>
+            <td>
+            <a href="#" [routerLink]="['/gateway/', gateway.id]" class="btn btn-primary">View</a>
+            <button (click) = "deleteGateway(gateway.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

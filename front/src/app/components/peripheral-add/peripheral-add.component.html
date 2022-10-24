@@ -1,0 +1,48 @@
+<!--<h4>Peripheral Add</h4>
+<form (ngSubmit) = "onSubmitForm()">
+     
+    <div class="form-group">
+        <label> Uid</label>
+        <input type="number" class ="form-control" id = "uid"
+            [(ngModel)] = "peripheral.uid" name = "uid">
+    </div>
+ 
+    <div class="form-group">
+        <label> Vendor</label>
+        <input type="text" class ="form-control" id = "vendor"
+            [(ngModel)] = "peripheral.vendor" name = "vendor">
+    </div>
+    <div class="form-group">
+        <label> Status</label>
+        <input type="select" class ="form-control" id = "status"
+            [(ngModel)] = "peripheral.status" name = "status">
+    </div>
+ 
+    <button class = "btn btn-success" type ="submit">Submit</button>
+    <button (click) = "redirectGateway()" class = "btn btn-info"> Back to Gateway List</button>
+ 
+</form>-->
+<form [formGroup]="peripheralForm" (ngSubmit)="onSubmitForm()">
+
+    <div class="form-group">
+        <label for="uid"> uid </label>
+        <input id="uid" class="form-control" type="number" formControlName="uid">
+    </div>
+
+
+    <div class="form-group">
+        <label for="vendor"> vendor </label>
+        <input id="vendor" class="form-control" type="text" formControlName="vendor">
+    </div>
+
+    <div class="form-group">
+        <label for="status"> status</label>
+        <select id="status" class="form-control" type="text" formControlName="status">
+            <option>ONLINE</option>
+            <option>OFFLINE</option>
+        </select>
+    </div>
+
+    <button class = "btn btn-success" type="submit" [disabled]="peripheralForm.invalid">Submit</button>
+
+</form>

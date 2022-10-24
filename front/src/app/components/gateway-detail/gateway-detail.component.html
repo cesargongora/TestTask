@@ -1,0 +1,43 @@
+<h4> Gateway Details</h4>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <label> <b> ID: </b></label> {{gateway.id}}
+        </div>
+        <div>
+            <label> <b> Name: </b></label> {{gateway.name}}
+        </div>
+        <div>
+            <label> <b> Serial: </b></label> {{gateway.snumber}}
+        </div>
+        <div>
+            <label> <b> Ip Addr: </b></label> {{gateway.ipaddr}}
+        </div>
+        <p></p><p></p>
+        <div>
+            <button (click) = "redirectGatewayList()" class = "btn btn-info"> Back to Gateway List</button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <a *ngIf="peripheralLimit()" href="#" [routerLink]="['/peripheral/add/', gateway.id]" class="btn btn-primary">Create Peripheral</a>
+        <div *ngFor="let peripheral of gateway.peripheral">
+            <div>
+                <label> <b> ID: </b></label> {{peripheral.id}}
+            </div>
+            <div>
+                <label> <b> Uid: </b></label> {{peripheral.uid}}
+            </div>
+            <div>
+                <label> <b> Vendor: </b></label> {{peripheral.vendor}}
+            </div>
+            <div>
+                <label> <b> CreateAt: </b></label> {{peripheral.updateAt | date:'short'}}
+            </div>
+            <div>
+                <label> <b> Status: </b></label> {{peripheral.status}}
+            </div>
+            <button (click) = "deletePheripheral(peripheral.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            <br>
+    </div>
+    </div>
+</div>

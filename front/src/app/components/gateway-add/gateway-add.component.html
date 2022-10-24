@@ -1,0 +1,22 @@
+<h4>Gateway Add</h4>
+<form [formGroup]="gatewayForm" (ngSubmit)="onSubmitForm()">
+
+    <div class="form-group">
+        <label for="name"> Name </label>
+        <input id="name" class="form-control" type="text" formControlName="name">
+    </div>
+
+
+    <div class="form-group">
+        <label for="snumber"> snumber </label>
+        <input id="snumber" class="form-control" type="text" formControlName="snumber">
+    </div>
+
+    <div class="form-group">
+        <label for="ipaddr"> ipaddr (must be valid ipv4)</label>
+        <input id="ipaddr" class="form-control" type="text" formControlName="ipaddr">
+    </div>
+
+    <button class = "btn btn-success" type="submit" [disabled]="gatewayForm.invalid">Submit</button>
+    <button (click) = "redirectGatewayList()" class = "btn btn-info"> Back to Gateway List</button>
+</form>
